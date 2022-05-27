@@ -1,0 +1,61 @@
+{
+  "name": "craco-webpack-example",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "dependencies": {
+    "@craco/craco": "^7.0.0-alpha.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.35",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "electron": "^19.0.1",
+    "electron-builder": "^23.0.3",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.2",
+    "wait-on": "^6.0.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-obfuscator": "^3.5.1"
+  },
+  "scripts": {
+    "start": "concurrently -k \"npm:start-react-app\" \"npm:start-backend\"",
+    "start-react-app": "craco start",
+    "start-backend": "wait-on http://127.0.0.1:3000 && npm run build-backend-dev && electron .",
+    "build-backend-dev": "cd backend && webpack --mode=development",
+    "build-backend-prod": "cd backend && webpack --mode=production",
+    "build": "npm run build-backend-prod && craco build",
+    "deploy-mac": "npm run build && electron-builder build -m",
+    "deploy-win": "npm run build && electron-builder build -w",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

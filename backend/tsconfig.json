@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "noEmit": false,
+    "sourceMap": true,
+    "module": "es6",
+    "types": ["electron", "node"],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "baseUrl": "src"
+  },
+  "include": [
+    "src"
+  ]
+}
